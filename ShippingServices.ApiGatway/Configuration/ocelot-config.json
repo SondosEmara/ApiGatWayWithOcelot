@@ -1,0 +1,33 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:7107"
+  },
+  "Routes": [
+    {
+      //Access URl--> https://localhost:7107/gateway/catalog
+      "UpstreamPathTemplate": "/gateway/catalog",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Catalog/get-products",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7003
+        }
+      ]
+    },
+    {
+      //Send Paramater in Body of the Request
+      "UpstreamPathTemplate": "/gateway/catalog",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Catalog/create-product",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7003
+        }
+      ]
+    }
+  ]
+}

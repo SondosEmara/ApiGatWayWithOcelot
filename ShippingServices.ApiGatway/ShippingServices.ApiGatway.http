@@ -1,0 +1,6 @@
+@ShippingServices.ApiGatway_HostAddress = http://localhost:5085
+
+GET {{ShippingServices.ApiGatway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
