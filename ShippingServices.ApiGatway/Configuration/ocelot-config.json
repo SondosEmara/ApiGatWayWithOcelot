@@ -13,8 +13,13 @@
         {
           "Host": "localhost",
           "Port": 7215
+        },
+        {
+          "Host": "localhost",
+          "Port": 5082
         }
-      ]
+      ],
+      "LoadBalancer": "RoundRobin"
     },
     {
       //Access URl--> https://localhost:7107/gateway/catalog
