@@ -19,7 +19,14 @@
           "Port": 5082
         }
       ],
-      "LoadBalancer": "RoundRobin"
+      "LoadBalancer": "RoundRobin",
+      "RateLimitOptions": {
+        "ClientWhitelist": [], // array of strings
+        "EnableRateLimiting": true,
+        "Period": "1s", // seconds, minutes, hours, days
+        "PeriodTimespan": 60, // only seconds
+        "Limit": 1
+      }
     },
     {
       //Access URl--> https://localhost:7107/gateway/catalog
