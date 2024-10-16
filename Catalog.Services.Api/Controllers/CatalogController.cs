@@ -1,4 +1,6 @@
-﻿using Calalog.Services.Domain.Models;
+﻿using Authentication.Service.API.Models.Auth;
+using Calalog.Services.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -75,21 +77,33 @@ namespace Catalog.Services.Api.Controllers
                 }
             };
 
+
+        public UserInfoContext _userInfoContext { get; set; }
+
+        public CatalogController(UserInfoContext userInfoContext)
+        {
+            _userInfoContext = userInfoContext;
+        }
+       
+
         [HttpGet("get-products")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Product>>> Get()
         {
+            var currentUserId =_userInfoContext.GetCurrentUser();
             var products = GetProducts();
             await Task.Delay(500);
-            return Ok(products);
+            return Ok(new { products,currentuserid =currentUserId});
         }
 
         [HttpPost("create-product")]
+        [Authorize]
         public async Task<ActionResult<Product>> Post(Product product)
         {
+            var currentUserId = _userInfoContext.GetCurrentUser();
             //To Test Only ...............
             await Task.Delay(500);
-            // Return the product along with a 201 Created status code
-            return Ok("Created...");
+            return Ok(new { Message="Thanks Created...!", currentuserid = currentUserId });
         }
 
     }

@@ -1,4 +1,4 @@
-namespace Catalog.Services.Api
+namespace Idenitiy.Services.Api
 {
     public class WeatherForecast
     {

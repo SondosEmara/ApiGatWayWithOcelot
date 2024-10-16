@@ -1,9 +1,9 @@
 
-using Authentication.Service.API.Models.Auth;
-using Calalog.Services.Api.Congiurations;
+using Authentication.Service.API.Models;
+using Authentication.Service.API.Services;
 using JwtConfiguration;
 
-namespace Catalog.Services.Api
+namespace Authentication.Service.API
 {
     public class Program
     {
@@ -17,10 +17,8 @@ namespace Catalog.Services.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddScoped<ITokenService<User>, TokenService>();
             builder.Services.JwtConfig(builder.Configuration);
-            builder.Services.AddScoped<UserInfoContext>();
-            builder.Services.swagerConfig();   
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

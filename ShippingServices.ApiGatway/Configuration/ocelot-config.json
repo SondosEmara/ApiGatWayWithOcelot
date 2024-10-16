@@ -4,6 +4,19 @@
   },
   "Routes": [
     {
+      //Access URl--> https://localhost:7107/auth/login
+      "UpstreamPathTemplate": "/gateway/auth/login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Authentication/login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7215
+        }
+      ]
+    },
+    {
       //Access URl--> https://localhost:7107/gateway/catalog
       "UpstreamPathTemplate": "/gateway/catalog",
       "UpstreamHttpMethod": [ "GET" ],
@@ -14,7 +27,10 @@
           "Host": "localhost",
           "Port": 7003
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       //Send Paramater in Body of the Request
@@ -27,7 +43,13 @@
           "Host": "localhost",
           "Port": 7003
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+      //////"RouteClaimsRequirement": {
+      //////  "Roles": "User"
+      //////}
     }
   ]
 }

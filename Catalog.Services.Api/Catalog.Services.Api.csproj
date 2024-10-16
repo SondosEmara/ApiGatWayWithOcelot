@@ -12,6 +12,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Calalog.Services.Domain\Calalog.Services.Domain.csproj" />
+    <ProjectReference Include="..\JwtConfiguration\JwtConfiguration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 
 </Project>
