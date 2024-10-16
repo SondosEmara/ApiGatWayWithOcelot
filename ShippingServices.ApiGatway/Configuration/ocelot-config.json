@@ -30,6 +30,12 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 45,
+        "Region": "europe-central",
+        "Header": "OC-Caching-Control",
+        "EnableContentHashing": false
       }
     },
     {
